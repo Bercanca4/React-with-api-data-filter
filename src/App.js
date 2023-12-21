@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import SearchSide from "./components/searchSide";
-import DataList from "./components/dataList";
-import Footer from "./components/footer";
+import SearchSide from "./components/searchSide"; // Dosya yolu güncellendi
+import DataList from "./components/dataList"; // Dosya yolu güncellendi
+import Footer from "./components/footer"; // Dosya yolu güncellendi
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,6 +33,42 @@ function App() {
     fetchData();
   }, []);
 
+  const handleFilterChange = ({ searchValue, selectedValue }) => {
+    let updatedData = [...data];
+
+    switch (selectedValue) {
+      case "1": // Kelimeye göre filtreleme
+        updatedData = updatedData.filter((item) =>
+          item.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        break;
+      case "2": // Türe göre sıralama
+        updatedData = updatedData.filter((item) =>
+          item.category.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        break;
+      case "3": // Fiyata göre artan sıralama
+        updatedData.sort((a, b) => a.price - b.price);
+        break;
+      case "4": // Fiyata göre azalan sıralama
+        updatedData.sort((a, b) => b.price - a.price);
+        break;
+      case "5": // Puana göre en iyi sıralama
+        updatedData.sort((a, b) => b.rating.rate - a.rating.rate);
+        break;
+      case "6": // Puana göre en kötü sıralama
+        updatedData.sort((a, b) => a.rating.rate - b.rating.rate);
+        break;
+      case "7": // En çok yorum alan sıralama
+        updatedData.sort((a, b) => b.rating.count - a.rating.count);
+        break;
+      default: // Tümünü filtrele veya diğer durumlar için varsayılan
+        break;
+    }
+
+    setFilteredData(updatedData);
+  };
+
   if (isLoading) {
     return <div className="text-2xl">Veri yükleniyor...</div>;
   }
@@ -44,9 +80,9 @@ function App() {
   return (
     <div>
       <div>
-        <SearchSide />
+        <SearchSide onFilterChange={handleFilterChange} />
       </div>
-      <div className="flex flex-wrap gap-y-4 gap-x-8 items-center justify-center my-[2%]">
+      <div className="flex flex-wrap gap-y-6 gap-x-5 items-center justify-center my-[2%]">
         {filteredData.map((item, index) => (
           <DataList
             key={index}
