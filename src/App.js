@@ -43,24 +43,52 @@ function App() {
         );
         break;
       case "2": // Türe göre sıralama
-        updatedData = updatedData.filter((item) =>
-          item.category.toLowerCase().includes(searchValue.toLowerCase())
-        );
+        updatedData.sort((a, b) => a.category.localeCompare(b.category));
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.category.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       case "3": // Fiyata göre artan sıralama
         updatedData.sort((a, b) => a.price - b.price);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.titleb.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       case "4": // Fiyata göre azalan sıralama
         updatedData.sort((a, b) => b.price - a.price);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       case "5": // Puana göre en iyi sıralama
         updatedData.sort((a, b) => b.rating.rate - a.rating.rate);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       case "6": // Puana göre en kötü sıralama
         updatedData.sort((a, b) => a.rating.rate - b.rating.rate);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       case "7": // En çok yorum alan sıralama
         updatedData.sort((a, b) => b.rating.count - a.rating.count);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
         break;
       default: // Tümünü filtrele veya diğer durumlar için varsayılan
         break;
@@ -68,11 +96,9 @@ function App() {
 
     setFilteredData(updatedData);
   };
-
   if (isLoading) {
     return <div className="text-2xl">Veri yükleniyor...</div>;
   }
-
   if (error) {
     return <div className="text-2xl">Hata : {error}</div>;
   }
