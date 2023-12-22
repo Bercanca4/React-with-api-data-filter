@@ -19,11 +19,11 @@ function SearchSide({ onFilterChange }) {
   };
 
   return (
-    <div className="relative shadow-xl border-2 h-[150px] flex items-center justify-center">
+    <div className="relative  h-[150px] flex items-center justify-center">
       <div>
         <div>
           <label className="text-[30px] font-semibold select-none">
-            Veri filtrele
+            Ürün filtrele
           </label>
         </div>
         <div className="my-1 flex items-center gap-x-2 justify-center">
@@ -32,7 +32,7 @@ function SearchSide({ onFilterChange }) {
             value={searchValue}
             onChange={handleInputChange}
             className="outline-none hover:border-orange-500 border-2 pl-2 rounded-xl h-[50px] w-[500px]"
-            placeholder="Veri arayın..."
+            placeholder="Ürün arayın..."
           />
           <select
             value={selectedValue}
