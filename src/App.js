@@ -144,7 +144,7 @@ function App() {
         <SearchSide onFilterChange={handleFilterChange} />
       </div>
       <hr />
-      <div className="flex flex-wrap gap-6 items-center justify-center mt-[2%]">
+      <div className="flex flex-wrap gap-4 items-center justify-center mt-[2%]">
         {filteredData.length === 0 && (
           <div className="flex gap-x-5 items-center border mx-auto justify-center rounded-xl shadow-2xl cursor-pointer w-[850px] h-[450px]">
             <div>
