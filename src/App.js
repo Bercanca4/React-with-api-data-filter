@@ -49,8 +49,69 @@ function App() {
   const handleFilterChange = ({ searchValue, selectedValue }) => {
     let updatedData = [...data];
 
-    // ... Filtreleme ve sıralama kodları
-    // (Daha önceki kodlarınızı buraya kopyalayın)
+    switch (selectedValue) {
+      case "0": // Filtreleme tümünü karışık yapar ve title'a göre filtreler.
+        updatedData = updatedData.filter((item) =>
+          item.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        break;
+      case "1": // Kelimeye göre filtreleme
+        updatedData = updatedData.filter((item) =>
+          item.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        break;
+      case "2": // Türe göre sıralama
+        updatedData.sort((a, b) => a.category.localeCompare(b.category));
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.category.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+      case "3": // Fiyata göre artan sıralama
+        updatedData.sort((a, b) => a.price - b.price);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+      case "4": // Fiyata göre azalan sıralama
+        updatedData.sort((a, b) => b.price - a.price);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+        break;
+      case "5": // Puana göre en iyi sıralama
+        updatedData.sort((a, b) => b.rating.rate - a.rating.rate);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+      case "6": // Puana göre en kötü sıralama
+        updatedData.sort((a, b) => a.rating.rate - b.rating.rate);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+      case "7": // En çok yorum alan sıralama
+        updatedData.sort((a, b) => b.rating.count - a.rating.count);
+        if (searchValue) {
+          updatedData = updatedData.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+        }
+        break;
+      default: // Tümünü filtrele veya diğer durumlar için varsayılan
+        break;
+    }
 
     setFilteredData(updatedData);
   };
