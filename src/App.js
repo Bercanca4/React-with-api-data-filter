@@ -146,13 +146,14 @@ function App() {
       <hr />
       <div className="flex flex-wrap gap-6 items-center justify-center mt-[2%]">
         {filteredData.length === 0 && (
-          <div className="flex gap-x-5 items-center justify-center rounded-xl shadow-2xl cursor-pointer w-[850px] h-[450px]">
+          <div className="flex gap-x-5 items-center border mx-auto justify-center rounded-xl shadow-2xl cursor-pointer w-[850px] h-[450px]">
             <div>
               <BiSolidMessageSquareError className="w-[50px] h-[50px]" />
             </div>
             <div>
-              <p className="text-center font-bold text-[22px]">
-                Veri bulunamadı.
+              <p className="w-[600px] font-bold text-[22px]">
+                Aradığınız ürün bulunamadı. Lütfen ürününüzün seçtiğiniz
+                kategoriye uygunluğunu kontrol edin.
               </p>
             </div>
           </div>
