@@ -28,7 +28,7 @@ function dataList({ title, description, price, category, image, rating }) {
 
         <div className="my-2 mx-auto flex items-center  h-[40px]  justify-center w-[280px] rounded-xl border-orange-500 border p-1 select-none">
           <label className="text-[15px] select-none font-semibold whitespace-normal line-clamp-1  ">
-            Kategori : {category}
+            Tür/Kategori : {category}
           </label>
         </div>
 

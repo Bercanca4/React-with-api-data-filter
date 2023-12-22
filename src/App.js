@@ -67,7 +67,7 @@ function App() {
         updatedData.sort((a, b) => a.price - b.price);
         if (searchValue) {
           updatedData = updatedData.filter((item) =>
-            item.titleb.toLowerCase().includes(searchValue.toLowerCase())
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
           );
         }
         break;
@@ -78,6 +78,7 @@ function App() {
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           );
         }
+        break;
         break;
       case "5": // Puana göre en iyi sıralama
         updatedData.sort((a, b) => b.rating.rate - a.rating.rate);
@@ -123,7 +124,7 @@ function App() {
       </div>
       <div className="flex flex-wrap gap-y-6 gap-x-5 items-center mt-[5%] justify-center ">
         {filteredData.length === 0 && (
-          <div className="flex gap-x-5 items-center justify-center rounded-xl shadow-2xl  cursor-pointer  w-[650px] h-[450px]">
+          <div className="flex gap-x-5 items-center justify-center rounded-xl shadow-2xl  cursor-pointer  w-[850px] h-[450px]">
             <div>
               <BiSolidMessageSquareError className="w-[50px] h-[50px]" />
             </div>

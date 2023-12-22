@@ -19,7 +19,7 @@ function SearchSide({ onFilterChange }) {
   };
 
   return (
-    <div className="relative shadow-xl border-2 h-[150px] flex items-center   justify-center">
+    <div className="relative shadow-xl border-2 h-[150px] flex items-center justify-center">
       <div>
         <div>
           <label className="text-[30px] font-semibold select-none">
