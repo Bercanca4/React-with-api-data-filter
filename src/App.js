@@ -84,7 +84,6 @@ function App() {
           );
         }
         break;
-        break;
       case "5": // Puana göre en iyi sıralama
         updatedData.sort((a, b) => b.rating.rate - a.rating.rate);
         if (searchValue) {
