@@ -2,7 +2,7 @@ import React from "react";
 
 function footer() {
   return (
-    <footer class="bg-white relative  flex items-center justify-between mt-[8%] h-[100px] rounded-lg  dark:bg-gray-800 ">
+    <footer class="fixed bottom-0 bg-white w-full flex items-center justify-between h-[100px] rounded-lg dark:bg-gray-800 z-50">
       <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023{" "}

@@ -119,7 +119,7 @@ function App() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <p className="text-3xl mb-4 text-black-600">
-          Veriler çekiliyor ve yükleniyor...
+          Veriler çekiliyor lütfen bekleyin...
         </p>
         <div className="w-64 h-[25px]  flex items-center justify-start  bg-gray-200 rounded-full relative">
           <div
@@ -144,16 +144,16 @@ function App() {
         <SearchSide onFilterChange={handleFilterChange} />
       </div>
       <hr />
-      <div className="flex flex-wrap gap-4 items-center justify-center mt-[2%]">
+      <div className="flex flex-wrap gap-4 items-center justify-center mb-[7%] mt-[2%]">
         {filteredData.length === 0 && (
-          <div className="flex gap-x-5 items-center border mx-auto justify-center rounded-xl shadow-2xl cursor-pointer w-[850px] h-[450px]">
+          <div className="flex gap-x-5 items-center border mx-auto justify-center rounded-xl shadow-2xl cursor-pointer  w-[850px] h-[450px]">
             <div>
               <BiSolidMessageSquareError className="w-[50px] h-[50px]" />
             </div>
             <div>
               <p className="w-[600px] font-bold text-[22px]">
                 Aradığınız ürün bulunamadı. Lütfen ürününüzün seçtiğiniz
-                kategoriye uygunluğunu kontrol edin.
+                filtreye uygunluğunu kontrol edin.
               </p>
             </div>
           </div>
